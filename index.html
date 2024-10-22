@@ -20,23 +20,38 @@
             color: gold;
         }
 
-        #user-input {
-            width: 98.3%;
-            padding: 10px;
+        #input-container {
+            display: flex;
+            align-items: center;
             margin-bottom: 10px;
+        }
+
+        #user-input {
+            flex-grow: 1;
+            padding: 10px;
             border-radius: 5px;
             background-color: black;
             color: gold;
+            border: 1px solid gold;
+            margin-right: 10px;
         }
 
         #send-button {
-            padding: 10px 20px;
-            width: 100%;
-            border-radius: 5px;
+            width: 40px;  /* Ensuring button is a circle */
+            height: 40px; /* Same as width to maintain circle */
             background-color: black;
             color: gold;
-            margin-bottom: 10px;
+            border-radius: 50%; /* Makes the button circular */
             border: 1px solid gold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Centers the arrow inside the button */
+        }
+
+        #send-button::before {
+            content: '↑'; /* Up arrow symbol */
+            font-size: 18px;
         }
 
         h1 {
@@ -48,8 +63,11 @@
 <body>
     <h1>US4 Ai</h1>
     <div id="chat-container"><img src="/groq-ai/logo.png" alt="AI Logo" style="width: 20px; height: 20px;"> How can I help you?</div>
-    <textarea id="user-input" placeholder="Type your message here..."></textarea>
-    <button id="send-button">Send</button>
+    
+    <div id="input-container">
+        <textarea id="user-input" placeholder="Type your message here..."></textarea>
+        <button id="send-button"></button>
+    </div>
 
     <script src="ai.js"></script>
 </body>
