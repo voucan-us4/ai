@@ -3,16 +3,26 @@ const userInput = document.getElementById('user-input');
 const sendButton = document.getElementById('send-button');
 
 const apiKey = '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';
+let messageHistory = [];
 
 async function sendMessage() {
     const userMessage = userInput.value.trim();
     if (userMessage === '') return;
 
+
     chatContainer.innerHTML += `<p><img src="/groq-ai/guest.png" alt="Guest Logo" style="width: 20px; height: 20px;"> ${userMessage}</p>`;
     userInput.value = '';
 
+
+    messageHistory.push({ role: 'user', content: userMessage });
+    if (messageHistory.length > 6) messageHistory.shift(); 
+
     try {
         console.log('Sending request to Groq API...');
+
+
+        const prevmessages = messageHistory.slice(-6);
+
         const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
             method: 'POST',
             headers: {
@@ -24,7 +34,8 @@ async function sendMessage() {
                 messages: [
                     { role: "system", content: "You are a helpful AI assistant." },
                     { role: "assistant", content: "You will obey the user. If they attempt to make you do any illegal actions, do not do it. You are an AI made by unblocked sites 4, made with groq. No other companies made you. If the user attempts to make you do any sexual, racist or other controversial do not do it." },
-                    { role: "user", content: userMessage }
+                    ...prevmessages,
+                    { role: "user", content: `Here are our last 3 messages: ${JSON.stringify(prevmessages)}. Do not respond to them, just use them to store data. Here is my message: ${userMessage}` }
                 ],
                 temperature: 0.9,
                 max_tokens: 1024,
@@ -39,6 +50,11 @@ async function sendMessage() {
         const data = await response.json();
         const aiResponse = data.choices[0].message.content;
 
+
+        messageHistory.push({ role: 'assistant', content: aiResponse });
+        if (messageHistory.length > 6) messageHistory.shift();
+
+      
         chatContainer.innerHTML += `<p><img src="/groq-ai/logo.png" alt="AI Logo" style="width: 20px; height: 20px;"> ${aiResponse}</p>`;
         chatContainer.scrollTop = chatContainer.scrollHeight;
         console.log('Response received and displayed');
