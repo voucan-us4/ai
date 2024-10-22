@@ -10,7 +10,7 @@ async function sendMessage() {
     if (userMessage === '') return;
 
 
-    chatContainer.innerHTML += `<p><img src="/groq-ai/guest.png" alt="Guest Logo" style="width: 20px; height: 20px;"> ${userMessage}</p>`;
+    chatContainer.innerHTML += `<p><img src="/ai/guest.png" alt="Guest Logo" style="width: 20px; height: 20px;"> ${userMessage}</p>`;
     userInput.value = '';
 
 
@@ -55,7 +55,7 @@ async function sendMessage() {
         if (messageHistory.length > 10) messageHistory.shift();
 
       
-        chatContainer.innerHTML += `<p><img src="/groq-ai/logo.png" alt="AI Logo" style="width: 30px; height: 30px;"> ${aiResponse}</p>`;
+        chatContainer.innerHTML += `<p><img src="/ai/logo.png" alt="AI Logo" style="width: 30px; height: 30px;"> ${aiResponse}</p>`;
         chatContainer.scrollTop = chatContainer.scrollHeight;
         console.log('Response received and displayed');
     } catch (error) {
