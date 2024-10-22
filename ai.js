@@ -39,7 +39,7 @@ async function sendMessage() {
         const data = await response.json();
         const aiResponse = data.choices[0].message.content;
 
-        chatContainer.innerHTML += `<p><img src="logo.png" alt="AI Logo" style="width: 20px; height: 20px;"> ${aiResponse}</p>`;
+        chatContainer.innerHTML += `<p><img src="/groq-ai/logo.png" alt="AI Logo" style="width: 20px; height: 20px;"> ${aiResponse}</p>`;
         chatContainer.scrollTop = chatContainer.scrollHeight;
         console.log('Response received and displayed');
     } catch (error) {
