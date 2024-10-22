@@ -55,5 +55,3 @@ userInput.addEventListener('keypress', (e) => {
         sendMessage();
     }
 });
-
-console.log('Script loaded successfully');
