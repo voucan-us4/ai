@@ -15,13 +15,13 @@ async function sendMessage() {
 
 
     messageHistory.push({ role: 'user', content: userMessage });
-    if (messageHistory.length > 50) messageHistory.shift(); 
+    if (messageHistory.length > 30) messageHistory.shift(); 
 
     try {
         console.log('Sending request to Groq API...');
 
 
-        const prevmessages = messageHistory.slice(-50);
+        const prevmessages = messageHistory.slice(-30);
 
         const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
             method: 'POST',
@@ -52,7 +52,7 @@ async function sendMessage() {
 
 
         messageHistory.push({ role: 'assistant', content: aiResponse });
-        if (messageHistory.length > 50) messageHistory.shift();
+        if (messageHistory.length > 30) messageHistory.shift();
 
       
         chatContainer.innerHTML += `<p><img src="/ai/logo.png" alt="AI Logo" style="width: 30px; height: 30px;"> ${aiResponse}</p>`;
