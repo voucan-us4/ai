@@ -68,7 +68,7 @@
                 justify-content: center;
             }
             #send-button::before {
-                content: '&#8593;';
+                content: '↑';
                 font-size: 18px;
             }
             h1 {
