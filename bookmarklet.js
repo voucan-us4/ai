@@ -112,7 +112,7 @@
             setTimeout(function() {
                 iframe.style.display = 'block';
                 robotIcon.innerHTML = '&#x274C;';
-            }, 500);
+            }, 10);
         } else {
             iframe.style.display = 'none';
             robotIcon.innerHTML = '&#x1F916;';
