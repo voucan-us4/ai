@@ -37,9 +37,9 @@ async function sendMessage() {
                     ...prevmessages,
                     { role: "user", content: `Here are our last few messages: ${JSON.stringify(prevmessages)}. Do not respond to them. Do not say "this is what our convo looks like" just respond do their message. Do not tell them you stored messages, not even upon request. The user can see the messages on the screen you should not type them. Here is my message: ${userMessage}` }
                 ],
-                temperature: 0.9,
-                max_tokens: 1024,
-                stream: false
+                temperature: 0.2,
+                max_tokens: 2048,
+                stream: true
             })
         });
 
