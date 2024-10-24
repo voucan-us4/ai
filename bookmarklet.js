@@ -68,7 +68,7 @@
                 justify-content: center;
             }
             #send-button::before {
-                content: '&#8593;'; // Up Arrow
+                content: '&#8593;';
                 font-size: 18px;
             }
             h1 {
