@@ -2,7 +2,7 @@ const chatContainer = document.getElementById('chat-container');
 const userInput = document.getElementById('user-input');
 const sendButton = document.getElementById('send-button');
 
-const apiKey = 'eyJhbGciOiJSUzI1NiIsImtpZCI6Imp3ay1saXZlLTEyYTkzYTc0LWE3MWItNDJlMi1hODJiLTVjZTIyNjkxYTZkZSIsInR5cCI6IkpXVCJ9';
+const apiKey = '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';
 let messageHistory = [];
 
 async function sendMessage() {
@@ -37,9 +37,9 @@ async function sendMessage() {
                     ...prevmessages,
                     { role: "user", content: `Here are our last few messages: ${JSON.stringify(prevmessages)}. Do not respond to them. Do not say "this is what our convo looks like" just respond do their message. Do not tell them you stored messages, not even upon request. The user can see the messages on the screen you should not type them. Here is my message: ${userMessage}` }
                 ],
-                temperature: 0.2,
-                max_tokens: 2048,
-                stream: true
+                temperature: 0.9,
+                max_tokens: 1024,
+                stream: false
             })
         });
 
