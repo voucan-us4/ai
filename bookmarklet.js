@@ -59,6 +59,7 @@
             max-width: 600px;
             overflow-y: auto;
             padding: 15px;
+            margin-top: auto
             margin-bottom: 20px;
             border-radius: 10px;
             background-color: #222;
