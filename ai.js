@@ -2,7 +2,7 @@ const chatContainer = document.getElementById('chat-container');
 const userInput = document.getElementById('user-input');
 const sendButton = document.getElementById('send-button');
 
-const apiKey = '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';
+const apiKey = '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';
 let messageHistory = [];
 
 async function sendMessage() {
