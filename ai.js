@@ -2,7 +2,7 @@ const chatContainer = document.getElementById('chat-container');
 const userInput = document.getElementById('user-input');
 const sendButton = document.getElementById('send-button');
 
-const apiKey = 'Z3NrX3M0azZUMHZOdmwzU3luelRDZWpEV0dkeWIzRllWWXd5SDBIbklDQ1ZtSTlVOHlQeEFOS0w';
+const apiKey = 'Z3NrX0h1N0ZPbGZYMmpleERkNE5IZFAzV0dkeWIzRlkwSWZWekdZNlkwMmFrbUxLSUFxRk51Z1Y';
 const apikeyDC = atob(apiKey);
 let messageHistory = [];
 
