@@ -3,7 +3,7 @@ const userInput = document.getElementById('user-input');
 const sendButton = document.getElementById('send-button');
 
 const apiKey = 'Z3NrX3M0azZUMHZOdmwzU3luelRDZWpEV0dkeWIzRllWWXd5SDBIbklDQ1ZtSTlVOHlQeEFOS0w';
-const apiKey2 = atob(apiKey);
+const apikeyDC = atob(apiKey);
 let messageHistory = [];
 
 async function sendMessage() {
@@ -23,7 +23,7 @@ async function sendMessage() {
         const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
             method: 'POST',
             headers: {
-                'Authorization': `Bearer ${apiKey2}`,
+                'Authorization': `Bearer ${apikeyDC}`,
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
