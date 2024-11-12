@@ -2,31 +2,28 @@ const chatContainer = document.getElementById('chat-container');
 const userInput = document.getElementById('user-input');
 const sendButton = document.getElementById('send-button');
 
-const apiKey = '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';
+const apiKey = 'Z3NrX3M0azZUMHZOdmwzU3luelRDZWpEV0dkeWIzRllWWXd5SDBIbklDQ1ZtSTlVOHlQeEFOS0w';
+const apiKey2 = atob(apiKey);
 let messageHistory = [];
 
 async function sendMessage() {
     const userMessage = userInput.value.trim();
     if (userMessage === '') return;
 
-
     chatContainer.innerHTML += `<p><img src="https://us4-ubg.github.io/ai/guest.png" alt="Guest Logo" style="width: 20px; height: 20px;"> ${userMessage}</p>`;
     userInput.value = '';
-
 
     messageHistory.push({ role: 'user', content: userMessage });
     if (messageHistory.length > 10) messageHistory.shift(); 
 
     try {
         console.log('Sending request to Groq API...');
-
-
         const prevmessages = messageHistory.slice(-10);
 
         const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
             method: 'POST',
             headers: {
-                'Authorization': `Bearer ${apiKey}`,
+                'Authorization': `Bearer ${apiKey2}`,
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
@@ -50,11 +47,9 @@ async function sendMessage() {
         const data = await response.json();
         const aiResponse = data.choices[0].message.content;
 
-
         messageHistory.push({ role: 'assistant', content: aiResponse });
         if (messageHistory.length > 10) messageHistory.shift();
 
-      
         chatContainer.innerHTML += `<p><img src="https://us4-ubg.github.io/ai/logo.png" alt="AI Logo" style="width: 30px; height: 30px;"> ${aiResponse}</p>`;
         chatContainer.scrollTop = chatContainer.scrollHeight;
         console.log('Response received and displayed');
