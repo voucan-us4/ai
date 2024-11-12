@@ -57,9 +57,8 @@
             height: 400px;
             width: 80%;
             max-width: 600px;
-            overflow-y: auto;
-            padding: 15px;
-            margin-top: auto
+            padding: 20px;
+            margin-top: 25px;
             margin-bottom: 20px;
             border-radius: 10px;
             background-color: #222;
@@ -133,17 +132,14 @@
             padding: 10px;
             margin: 5px 0;
             border-radius: 5px;
-            background-color: #333;
         }
 
         .message.user {
             text-align: right;
-            background-color: #444;
         }
 
         .message.bot {
             text-align: left;
-            background-color: #333;
         }
     </style>
 </head>
@@ -159,7 +155,8 @@
 
     <script src="https://us4-ubg.github.io/ai/ai.js"></script>
 </body>
-</html>`;
+</html>
+`;
 
     iframe.style.position = 'fixed';
     iframe.style.bottom = '100px';
@@ -185,7 +182,7 @@
             iframe.style.visibility = 'visible';
             iframe.style.opacity = '1';
             iframe.style.width = '450px';
-            iframe.style.height = '500px';
+            iframe.style.height = '450px';
             iframe.style.bottom = '60px';
             iframe.style.right = '100px';
             iframe.style.transform = 'scale(1)';
