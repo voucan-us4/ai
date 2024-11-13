@@ -152,7 +152,20 @@
         <textarea id="user-input" placeholder="Type your message here..."></textarea>
         <button id="send-button"></button>
     </div>
+    <script>
+        document.getElementById('send-button').addEventListener('click', function() {
+            const userInput = document.getElementById('user-input').value.trim();
+            if (userInput) {
+                const newMessage = document.createElement('div');
+                newMessage.classList.add('message', 'user');
+                newMessage.textContent = userInput;
 
+                document.getElementById('chat-container').appendChild(newMessage);
+                document.getElementById('user-input').value = '';
+                document.getElementById('chat-container').scrollTop = document.getElementById('chat-container').scrollHeight;
+            }
+        });
+    </script>
     <script src="https://us4-ubg.github.io/ai/ai.js"></script>
 </body>
 </html>
