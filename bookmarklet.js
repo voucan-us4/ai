@@ -64,6 +64,7 @@
             background-color: #222;
             color: gold;
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            overflow-y: auto;
         }
 
         #input-container {
@@ -152,6 +153,7 @@
         <textarea id="user-input" placeholder="Type your message here..."></textarea>
         <button id="send-button"></button>
     </div>
+
     <script>
         document.getElementById('send-button').addEventListener('click', function() {
             const userInput = document.getElementById('user-input').value.trim();
@@ -168,8 +170,7 @@
     </script>
     <script src="https://us4-ubg.github.io/ai/ai.js"></script>
 </body>
-</html>
-`;
+</html>`;
 
     iframe.style.position = 'fixed';
     iframe.style.bottom = '100px';
