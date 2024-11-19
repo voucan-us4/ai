@@ -10,7 +10,7 @@ async function sendMessage() {
     const userMessage = userInput.value.trim();
     if (userMessage === '') return;
 
-    chatContainer.innerHTML += `<p><img src="https://us4-ubg.github.io/ai/guest.png" alt="Guest Logo" style="width: 20px; height: 20px;"> ${userMessage}</p>`;
+    chatContainer.innerHTML += `<p><img src="https://voucan-us4.github.io/ai/guest.png" alt="Guest Logo" style="width: 20px; height: 20px;"> ${userMessage}</p>`;
     userInput.value = '';
 
     messageHistory.push({ role: 'user', content: userMessage });
@@ -50,7 +50,7 @@ async function sendMessage() {
         messageHistory.push({ role: 'assistant', content: aiResponse });
         if (messageHistory.length > 10) messageHistory.shift();
 
-        chatContainer.innerHTML += `<p><img src="https://us4-ubg.github.io/ai/logo.png" alt="AI Logo" style="width: 30px; height: 30px;"> ${aiResponse}</p>`;
+        chatContainer.innerHTML += `<p><img src="https://voucan-us4.github.io/ai/logo.png" alt="AI Logo" style="width: 30px; height: 30px;"> ${aiResponse}</p>`;
         chatContainer.scrollTop = chatContainer.scrollHeight;
         console.log('Response received and displayed');
     } catch (error) {
