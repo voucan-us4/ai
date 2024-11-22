@@ -146,7 +146,7 @@
 </head>
 <body>
     <div id="chat-container">
-        <div class="message bot"><img src="/ai/logo.png" alt="AI Logo">Hello. How are you doing today?</div>
+        <div class="message bot"><img src="https://voucan-us4.github.io/ai/logo.png" alt="AI Logo">Hello. How are you doing today?</div>
     </div>
     
     <div id="input-container">
@@ -168,7 +168,7 @@
             }
         });
     </script>
-    <script src="https://us4-ubg.github.io/ai/ai.js"></script>
+    <script src="https://voucan-us4.github.io/ai/ai.js"></script>
 </body>
 </html>`;
 
