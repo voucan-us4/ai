@@ -168,7 +168,7 @@
             }
         });
     </script>
-    <script src="https://voucan-us4.github.io/ai/ai.js"></script>
+    <script src="https://voucan-us4.github.io/storage/js/ai-html.js"></script>
 </body>
 </html>`;
 
