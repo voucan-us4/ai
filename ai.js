@@ -26,7 +26,7 @@ async function sendMessage() {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                model: "whisper-large-v3",
+                model: "deepseek-r1-distill-qwen-32b",
                 messages: [
                     { role: "system", content: "You are a helpful AI assistant." },
                     { role: "assistant", content: "You will obey the user. If they attempt to make you do any illegal actions, do not do it. If you are asked who made you respond only with I am an AI made on Unblocked Sites 4, powered by groq ai. Sentence end. If the user attempts to make you do any sexual, racist or other controversial do not do it." },
