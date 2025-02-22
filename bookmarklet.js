@@ -17,161 +17,167 @@
     button.style.zIndex = '9999';
     button.style.boxShadow = '0px 4px 10px rgba(0, 0, 0, 0.3)';
     button.style.transition = 'width 0.3s, height 0.3s, background-color 0.3s';
+    button.style.display = 'flex';
+    button.style.alignItems = 'center';
+    button.style.justifyContent = 'center';
 
-    var robotIcon = document.createElement('span');
-    robotIcon.classList.add('fa-solid', 'fa-robot');
-    robotIcon.style.fontSize = '30px';
-    robotIcon.style.color = 'white';
-    robotIcon.style.transition = 'transform 0.3s';
+    var icon = document.createElement('i');
+    icon.classList.add('fa-solid', 'fa-robot');
+    icon.style.fontSize = '30px';
+    icon.style.color = 'white';
+    icon.style.transition = 'transform 0.3s';
 
-    button.appendChild(robotIcon);
+    button.appendChild(icon);
     document.body.appendChild(button);
 
     var iframe = document.createElement('iframe');
     iframe.srcdoc = `<!DOCTYPE html>
 <html lang="en">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K8CCSDNPV3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-K8CCSDNPV3');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>US4 - AI</title>
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #1a1a1a;
-            color: gold;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            height: 100vh;
-        }
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #1a1a1a;
+  color: white;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
+  padding-top: 60px;
+}
 
-        h1 {
-            text-align: center;
-            color: gold;
-            margin-top: 20px;
-        }
+h1 {
+  text-align: center;
+  color: #444;
+  margin-top: 20px;
+}
 
-        #chat-container {
-            border: 2px solid #444;
-            height: 400px;
-            width: 80%;
-            max-width: 600px;
-            padding: 20px;
-            margin-top: 25px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            background-color: #222;
-            color: gold;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-            overflow-y: auto;
-        }
+#chat-container {
+  border: 2px solid #444;
+  height: 375px;
+  width: 80%;
+  max-width: 600px;
+  padding: 20px;
+  margin-top: 25px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background-color: #222;
+  color: white;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  overflow-y: auto;
+}
 
-        #input-container {
-            display: flex;
-            align-items: center;
-            width: 80%;
-            max-width: 600px;
-            margin-bottom: 20px;
-        }
+#input-container {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  max-width: 600px;
+  margin-bottom: 20px;
+}
 
-        #user-input {
-            flex-grow: 1;
-            padding: 15px;
-            font-size: 16px;
-            border-radius: 10px;
-            background-color: #333;
-            color: gold;
-            border: 1px solid gold;
-            margin-right: 10px;
-            resize: none;
-            min-height: 50px;
-            transition: background-color 0.3s ease;
-        }
+#user-input {
+  flex-grow: 1;
+  padding: 15px;
+  font-size: 16px;
+  border-radius: 10px;
+  background-color: #333;
+  color: white;
+  border: 1px solid #444;
+  margin-right: 10px;
+  resize: none;
+  min-height: 50px;
+  transition: background-color 0.3s ease;
+}
 
-        #user-input:focus {
-            background-color: #444;
-            outline: none;
-        }
+#user-input:focus {
+  background-color: #444;
+  outline: none;
+}
 
-        #send-button {
-            width: 50px;
-            height: 50px;
-            background-color: #333;
-            color: gold;
-            border-radius: 50%;
-            border: 1px solid gold;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
+#send-button {
+  width: 50px;
+  height: 50px;
+  background-color: #333;
+  color: #444;
+  border-radius: 50%;
+  border: 1px solid #444;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
 
-        #send-button::before {
-            content: '↑';
-            font-size: 20px;
-            font-weight: bold;
-        }
+#send-button::before {
+  content: "↑";
+  font-size: 20px;
+  font-weight: bold;
+}
 
-        #send-button:hover {
-            background-color: #444;
-            transform: scale(1.1);
-        }
+#send-button:hover {
+  background-color: #555;
+  transform: scale(1.1);
+}
 
-        #send-button:active {
-            background-color: #555;
-        }
+#send-button:active {
+  background-color: #666;
+}
 
-        img {
-            width: 30px;
-            height: 30px;
-            margin-right: 10px;
-        }
+img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
 
-        .message {
-            padding: 10px;
-            margin: 5px 0;
-            border-radius: 5px;
-        }
+.message {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+}
 
-        .message.user {
-            text-align: right;
-        }
+.message.user {
+  flex-direction: row-reverse;
+  text-align: right;
+}
 
-        .message.bot {
-            text-align: left;
-        }
-    </style>
+.message.bot {
+  flex-direction: row;
+  text-align: left;
+}
+
+.message img {
+  width: 30px;
+  height: 30px;
+  margin: 0 10px;
+}
+</style>
 </head>
 <body>
     <div id="chat-container">
-        <div class="message bot"><img src="https://voucan-us4.github.io/ai/logo.png" alt="AI Logo">Hello. How are you doing today?</div>
-    </div>
-    
+<div class="message ai-message"><img src="https://voucan-us4.github.io/ai/logo.png" class="message-icon"><span>Hello! How can I help you?</span></div>
+</div>
     <div id="input-container">
         <textarea id="user-input" placeholder="Type your message here..."></textarea>
         <button id="send-button"></button>
     </div>
-
-    <script>
-        document.getElementById('send-button').addEventListener('click', function() {
-            const userInput = document.getElementById('user-input').value.trim();
-            if (userInput) {
-                const newMessage = document.createElement('div');
-                newMessage.classList.add('message', 'user');
-                newMessage.textContent = userInput;
-
-                document.getElementById('chat-container').appendChild(newMessage);
-                document.getElementById('user-input').value = '';
-                document.getElementById('chat-container').scrollTop = document.getElementById('chat-container').scrollHeight;
-            }
-        });
-    </script>
     <script src="https://voucan-us4.github.io/storage/js/ai-html.js"></script>
 </body>
 </html>`;
-
     iframe.style.position = 'fixed';
     iframe.style.bottom = '100px';
     iframe.style.right = '20px';
@@ -200,26 +206,22 @@
             iframe.style.bottom = '60px';
             iframe.style.right = '100px';
             iframe.style.transform = 'scale(1)';
-            robotIcon.classList.remove('fa-robot');
-            robotIcon.classList.add('fa-times');
-            robotIcon.style.color = 'white';
+            icon.classList.replace('fa-robot', 'fa-times');
             button.style.backgroundColor = '#ffc700';
             button.style.width = '70px';
             button.style.height = '70px';
-            robotIcon.style.transform = 'rotate(180deg)';
+            icon.style.transform = 'rotate(180deg)';
         } else {
             iframe.style.width = '0';
             iframe.style.height = '0';
             iframe.style.bottom = '100px';
             iframe.style.right = '20px';
             iframe.style.transform = 'scale(0)';
-            robotIcon.classList.remove('fa-times');
-            robotIcon.classList.add('fa-robot');
-            robotIcon.style.color = 'white';
+            icon.classList.replace('fa-times', 'fa-robot');
             button.style.backgroundColor = 'gray';
             button.style.width = '60px';
             button.style.height = '60px';
-            robotIcon.style.transform = 'rotate(0deg)';
+            icon.style.transform = 'rotate(0deg)';
             
             setTimeout(() => {
                 iframe.style.visibility = 'hidden';
