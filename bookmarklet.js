@@ -59,7 +59,6 @@ body {
   align-items: center;
   justify-content: flex-start;
   height: 100vh;
-  padding-top: 60px;
   box-sizing: border-box;
 }
 
@@ -70,17 +69,14 @@ h1 {
 }
 
 #chat-container {
-  border: 2px solid #444;
+  border: none;
   height: auto;
   width: 90%;
   max-width: 600px;
-  padding: 15px;
   margin-top: 20px;
   margin-bottom: 15px;
   border-radius: 10px;
-  background-color: #222;
   color: white;
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
   display: flex;
   flex-direction: column;
 }
